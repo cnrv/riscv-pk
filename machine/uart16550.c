@@ -63,8 +63,8 @@ static void uart16550_done(const struct fdt_scan_node *node, void *extra)
   uart16550[1] = 0x00;    // Disable all interrupts
   uart16550[3] = 0x80;    
 
-  uart16550[0] = 30*1000*1000u / (16u * 115200u) % 0x100u;     // System clock 30 MHz, 115200 baud rate
-  uart16550[1] = 30*1000*1000u / (16u * 115200u) >> 8;     // divisor = clk_freq / (16 * Baud)
+  uart16550[0] = 60*1000*1000u / (16u * 115200u) % 0x100u;     // System clock 30 MHz, 115200 baud rate
+  uart16550[1] = 60*1000*1000u / (16u * 115200u) >> 8;     // divisor = clk_freq / (16 * Baud)
 
   uart16550[3] = 0x0B;    
   uart16550[2] = 0xC7;    // Enable FIFO, clear them, with 14-byte threshold
